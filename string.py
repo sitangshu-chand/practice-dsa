@@ -12,15 +12,13 @@ def count_vowels(input_string):
     print(len(vowels_count))
     return len(vowels_count)
 def find_non_repeating_character(input_string):
-    occurnce_count=0
-    new_seq=set(input_string)
-    for x in new_seq:
-          for y in input_string:
-            if x==y:
-                occurnce_count= occurnce_count +1
-          if occurnce_count >= 2:
-            return x
-    return -1   
+    char_dict={}
+    for char in input_string:
+        char_dict[char]= char_dict.get(char,0)+1
+    for char in input_string:
+        if char_dict[char]==1:
+            return char
+    return None
 
 def main():
     input_string= input("Enter input string \n")
