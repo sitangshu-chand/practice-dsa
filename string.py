@@ -20,10 +20,65 @@ def find_non_repeating_character(input_string):
             return char
     return None
 
+def is_anagram(s1, s2):
+    """Return True if s1 and s2 are anagrams (same characters, same counts).
+    Example: is_anagram("listen", "silent") -> True
+    """
+    # Hint: compare character-frequency maps, or sorted(s1) == sorted(s2).
+    #       Decide whether case/spaces should matter.
+    # TODO: implement
+    pass
+
+
+def char_frequency(input_string):
+    """Return a dict mapping each character to how many times it appears.
+    Example: char_frequency("aab") -> {"a": 2, "b": 1}
+    """
+    # Hint: same pattern as find_non_repeating_character:
+    #       freq[char] = freq.get(char, 0) + 1
+    # TODO: implement
+    pass
+
+
+def reverse_words(input_string):
+    """Return the string with word order reversed.
+    Example: reverse_words("the sky is blue") -> "blue is sky the"
+    """
+    # Hint: .split() breaks on whitespace, reverse the list, then " ".join(...)
+    # TODO: implement
+    pass
+
+
+def longest_common_prefix(strings):
+    """Return the longest prefix shared by all strings in the list.
+    Example: longest_common_prefix(["flower", "flow", "flight"]) -> "fl"
+    """
+    # Hint: compare characters column-by-column across all strings, or
+    #       start with strings[0] as the candidate and shrink it.
+    #       Watch out for an empty list or an empty string in the list.
+    # TODO: implement
+    pass
+
+
+def run_tests():
+    assert is_anagram("listen", "silent") is True
+    assert is_anagram("hello", "world") is False
+
+    assert char_frequency("aab") == {"a": 2, "b": 1}
+    assert char_frequency("") == {}
+
+    assert reverse_words("the sky is blue") == "blue is sky the"
+    assert reverse_words("hello") == "hello"
+
+    assert longest_common_prefix(["flower", "flow", "flight"]) == "fl"
+    assert longest_common_prefix(["dog", "cat"]) == ""
+    assert longest_common_prefix([]) == ""
+
+    print("All tests passed ✅")
+
+
 def main():
-    input_string= input("Enter input string \n")
-    result=find_non_repeating_character(input_string.lower())
-    print(f"Result is : \n{result}")
+    run_tests()
 
 
 
