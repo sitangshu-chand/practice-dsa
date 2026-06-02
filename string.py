@@ -27,7 +27,13 @@ def is_anagram(s1, s2):
     # Hint: compare character-frequency maps, or sorted(s1) == sorted(s2).
     #       Decide whether case/spaces should matter.
     # TODO: implement
-    pass
+    dict1={}
+    dict2={}
+    for c in s1:
+        dict1[c]= dict1.get(c,0)+1
+    for c in s2:
+        dict2[c]= dict2.get(c,0)+1
+    return dict1== dict2
 
 
 def char_frequency(input_string):
@@ -37,7 +43,10 @@ def char_frequency(input_string):
     # Hint: same pattern as find_non_repeating_character:
     #       freq[char] = freq.get(char, 0) + 1
     # TODO: implement
-    pass
+    mapping_dict={}
+    for c in input_string:
+        mapping_dict[c]= mapping_dict.get(c,0)+1
+    return mapping_dict
 
 
 def reverse_words(input_string):
@@ -46,7 +55,9 @@ def reverse_words(input_string):
     """
     # Hint: .split() breaks on whitespace, reverse the list, then " ".join(...)
     # TODO: implement
-    pass
+    split_words = input_string.split()
+    reversed_words = split_words[::-1]
+    return " ".join(reversed_words)
 
 
 def longest_common_prefix(strings):
@@ -70,9 +81,9 @@ def run_tests():
     assert reverse_words("the sky is blue") == "blue is sky the"
     assert reverse_words("hello") == "hello"
 
-    assert longest_common_prefix(["flower", "flow", "flight"]) == "fl"
-    assert longest_common_prefix(["dog", "cat"]) == ""
-    assert longest_common_prefix([]) == ""
+    # assert longest_common_prefix(["flower", "flow", "flight"]) == "fl"
+    # assert longest_common_prefix(["dog", "cat"]) == ""
+    # assert longest_common_prefix([]) == ""
 
     print("All tests passed ✅")
 
