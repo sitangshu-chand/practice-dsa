@@ -67,8 +67,19 @@ def longest_common_prefix(strings):
     # Hint: compare characters column-by-column across all strings, or
     #       start with strings[0] as the candidate and shrink it.
     #       Watch out for an empty list or an empty string in the list.
-    # TODO: implement
-    pass
+    if not strings:
+        return ""
+
+    # Start by assuming the whole first word is the common prefix.
+    prefix = strings[0]
+
+    # Shrink the prefix until every word starts with it.
+    for word in strings[1:]:
+        while not word.startswith(prefix):
+            prefix = prefix[:-1]   # drop the last character
+            if prefix == "":
+                return ""
+    return prefix
 
 
 def run_tests():
@@ -81,9 +92,9 @@ def run_tests():
     assert reverse_words("the sky is blue") == "blue is sky the"
     assert reverse_words("hello") == "hello"
 
-    # assert longest_common_prefix(["flower", "flow", "flight"]) == "fl"
-    # assert longest_common_prefix(["dog", "cat"]) == ""
-    # assert longest_common_prefix([]) == ""
+    assert longest_common_prefix(["flower", "flow", "flight"]) == "fl"
+    assert longest_common_prefix(["dog", "cat"]) == ""
+    assert longest_common_prefix([]) == ""
 
     print("All tests passed ✅")
 
